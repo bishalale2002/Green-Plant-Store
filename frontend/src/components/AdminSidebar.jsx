@@ -22,7 +22,7 @@ const AdminSidebar = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/admin/orders">
+          <Link className="nav-link" to="/admin/manage-orders">
             Manage Orders
           </Link>
         </li>

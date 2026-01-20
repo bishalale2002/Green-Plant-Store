@@ -6,7 +6,7 @@ import AdminLayout from "./admin/AdminLayout";
 import AdminDashboard from "./admin/AdminDashboard";
 import CreateCategory from "./admin/CreateCategory";
 import CreateProduct from "./admin/CreateProduct";
-import ManageOrders from "./admin/ManageOrders";
+import ManageOrders from "./admin/ManageOrder";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
