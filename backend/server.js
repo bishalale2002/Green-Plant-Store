@@ -10,6 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/api/admin", require("./routes/adminRoutes"));
+app.use("/uploads", express.static("uploads"));
 
 app.get("/", (req, res) => {
   res.send("Garden Plant Store API is running");
