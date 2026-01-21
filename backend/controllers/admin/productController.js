@@ -27,7 +27,20 @@ exports.createProduct = async (req, res) => {
   }
 };
 
+// backend/controllers/admin/productController.js
 exports.getProducts = async (req, res) => {
-  const products = await Product.find().populate("category");
-  res.json(products);
+  try {
+    const page = parseInt(req.query.page) || 1; // current page
+    const limit = parseInt(req.query.limit) || 10; // items per page
+    const skip = (page - 1) * limit;
+
+    const products = await Product.find()
+      .populate("category")
+      .skip(skip)
+      .limit(limit);
+
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 };
