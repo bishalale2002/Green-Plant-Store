@@ -7,6 +7,9 @@ import AdminDashboard from "./admin/AdminDashboard";
 import CreateCategory from "./admin/CreateCategory";
 import CreateProduct from "./admin/CreateProduct";
 import ManageOrders from "./admin/ManageOrder";
+import Cart from "./pages/Cart";
+
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -15,6 +18,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
 <Route path="/products"   element={<Product />} />
         <Route path="/admin" element={<AdminLayout />}>

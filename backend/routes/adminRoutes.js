@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const {
 
+  getOrders,
+  updateOrderStatus,
+} =require("../controllers/admin/orderController");
 /* ---------- AUTH ---------- */
 const { loginAdmin } = require("../controllers/admin/authController");
 router.post("/login", loginAdmin);
@@ -32,12 +36,9 @@ router.post(
 router.get("/product", getProducts);
 
 /* ---------- ORDERS ---------- */
-const {
-  getOrders,
-  updateOrderStatus,
-} = require("../controllers/admin/orderController");
 
-router.get("/orders", getOrders);
-router.put("/orders/:id", updateOrderStatus);
+
+router.get("/", getOrders);
+router.put("/:id/status", updateOrderStatus);
 
 module.exports = router;
