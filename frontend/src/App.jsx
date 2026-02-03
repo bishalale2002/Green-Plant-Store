@@ -8,8 +8,7 @@ import CreateCategory from "./admin/CreateCategory";
 import CreateProduct from "./admin/CreateProduct";
 import ManageOrders from "./admin/ManageOrder";
 import Cart from "./pages/Cart";
-
-
+import ForgotPassword from "./pages/ForgotPassword"; // Keep this import
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -20,8 +19,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
-<Route path="/products"   element={<Product />} />
+        <Route path="/products" element={<Product />} />
+
+        {/* ForgotPassword route should be a top-level route */}
+        {/* It should match the link in Login.jsx which is likely /admin/forgot-password */}
+        <Route path="/admin/forgot-password" element={<ForgotPassword />} /> {/* CORRECTED LINE */}
+
         <Route path="/admin" element={<AdminLayout />}>
+          {/* Admin routes that require AdminLayout (and likely authentication) */}
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="create-category" element={<CreateCategory />} />
           <Route path="create-product" element={<CreateProduct />} />

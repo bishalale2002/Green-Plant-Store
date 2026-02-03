@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // Import Link
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -21,7 +21,7 @@ const Login = () => {
       localStorage.setItem("adminToken", data.token);
       navigate("/admin/dashboard");
     } catch (err) {
-      alert("Invalid admin credentials");
+      alert(err.response?.data?.message || "Invalid admin credentials"); // Show error message from server
     }
   };
 
@@ -66,6 +66,13 @@ const Login = () => {
                     <button className="btn btn-success w-100 mt-2">
                       Login
                     </button>
+
+                    {/* Forgot Password Link */}
+                    <div className="text-center mt-3">
+                      <Link to="/admin/forgot-password" className="text-muted small">
+                        Forgot Password?
+                      </Link>
+                    </div>
                   </form>
 
                   <p className="text-muted text-center small mt-3 mb-0">
